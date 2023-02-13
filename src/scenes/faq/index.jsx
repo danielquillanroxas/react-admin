@@ -14,7 +14,7 @@ const FAQ = () => {
     return <Box m="20px">
         <Header title="FAQ" subtitle="Frequently Asked Questions Page"/>
 
-        <Accordion> 
+        <Accordion defaultExpanded> 
             <AccordionSummary expandIcon = {<ExpandMoreIcon/>}>
                 <Typography color={colors.greenAccent[500]} variant="h5">
                     An Important Question 
@@ -27,10 +27,10 @@ const FAQ = () => {
             </AccordionDetails>
         </Accordion>
 
-        <Accordion> 
+        <Accordion defaultExpanded> 
             <AccordionSummary expandIcon = {<ExpandMoreIcon/>}>
                 <Typography color={colors.greenAccent[500]} variant="h5">
-                    An Important Question 
+                    Another Important Question 
                 </Typography>
             </AccordionSummary>
             <AccordionDetails>
@@ -40,10 +40,10 @@ const FAQ = () => {
             </AccordionDetails>
         </Accordion>
 
-        <Accordion> 
+        <Accordion defaultExpanded> 
             <AccordionSummary expandIcon = {<ExpandMoreIcon/>}>
                 <Typography color={colors.greenAccent[500]} variant="h5">
-                    An Important Question 
+                    Your Favorite Question 
                 </Typography>
             </AccordionSummary>
             <AccordionDetails>
@@ -53,10 +53,10 @@ const FAQ = () => {
             </AccordionDetails>
         </Accordion>
 
-        <Accordion> 
+        <Accordion defaultExpanded> 
             <AccordionSummary expandIcon = {<ExpandMoreIcon/>}>
                 <Typography color={colors.greenAccent[500]} variant="h5">
-                    An Important Question 
+                    Some Random Question 
                 </Typography>
             </AccordionSummary>
             <AccordionDetails>
@@ -66,10 +66,23 @@ const FAQ = () => {
             </AccordionDetails>
         </Accordion>
 
-        <Accordion> 
+        <Accordion defaultExpanded> 
             <AccordionSummary expandIcon = {<ExpandMoreIcon/>}>
                 <Typography color={colors.greenAccent[500]} variant="h5">
-                    An Important Question 
+                    A Stupid Question 
+                </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+                <Typography>
+                    Aute adipisicing labore nulla sint fugiat pariatur aliquip excepteur Lorem voluptate velit. Est culpa mollit esse labore. Ullamco in labore anim consectetur irure nulla. Excepteur in duis aliqua aute anim magna anim pariatur dolor minim.
+                </Typography>
+            </AccordionDetails>
+        </Accordion>
+
+        <Accordion defaultExpanded> 
+            <AccordionSummary expandIcon = {<ExpandMoreIcon/>}>
+                <Typography color={colors.greenAccent[500]} variant="h5">
+                    The Final Question 
                 </Typography>
             </AccordionSummary>
             <AccordionDetails>
