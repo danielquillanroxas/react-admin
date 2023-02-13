@@ -22,10 +22,10 @@ const Invoices = () => {
         },
         {field:"date", headerName:"Date", flex: 1},
     ];
-//test
+
     return(
         <Box m="20px">
-            <Header title ="INVOICES" subtitle="List of Contacts for future reference" />
+            <Header title ="INVOICES" subtitle="List of Invoice Balances" />
             <Box m="40px 0 0 0" height="75vh" sx={{
                 "& .MuiDataGrid-root": {
                     border: "none"
@@ -47,11 +47,13 @@ const Invoices = () => {
                     borderTop: "none",
                     backgroundColor: colors.blueAccent[700]
                 },
-                "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
-                    color: `${colors.grey[100]} !important`
+                "& .MuiCheckbox-root": {
+                    color: `${colors.greenAccent[200]} !important`
                 }
+                
             }}>
                 <DataGrid 
+                checkboxSelection
                 rows={mockDataInvoices}
                 columns={columns}
                 />
