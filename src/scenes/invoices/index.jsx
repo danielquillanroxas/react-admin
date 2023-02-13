@@ -9,20 +9,23 @@ const Invoices = () => {
     const colors = tokens(theme.palette.mode);
 
     const columns = [
-        {field: "id", headerName:"ID", flex: 0.5}, 
-        {field: "registrarId", headerName: "Registrar ID"},
+        {field: "id", headerName:"ID"}, 
         {field:"name", headerName: "Name", flex: 1, cellClassName:"name-column--cell"},
-        {field:"age", headerName: "Age", type: "number", headerAlign:"left", align:"left"},
         {field:"phone", headerName:"Phone Number", flex:1},
         {field:"email", headerName:"Email", flex:1},
-        {field:"address", headerName:"Address"},
-        {field:"zipCode", headerName:"ZipCode", flex:1},
-        {field:"city", headerName:"City", flex:1},
+        {field:"cost", headerName:"Cost",
+            renderCell:(params) => (
+                <Typography color={colors.greenAccent[500]}>
+                    ${params.row.cost}
+                </Typography>
+            )
+        },
+        {field:"date", headerName:"Date", flex: 1},
     ];
 
     return(
         <Box m="20px">
-            <Header title ="CONTACTS" subtitle="List of Contacts for future reference" />
+            <Header title ="INVOICES" subtitle="List of Contacts for future reference" />
             <Box m="40px 0 0 0" height="75vh" sx={{
                 "& .MuiDataGrid-root": {
                     border: "none"
@@ -49,9 +52,8 @@ const Invoices = () => {
                 }
             }}>
                 <DataGrid 
-                rows={mockDataContacts}
+                rows={mockDataInvoices}
                 columns={columns}
-                components={{ Toolbar: GridToolbar }}
                 />
             </Box>
         </Box>
