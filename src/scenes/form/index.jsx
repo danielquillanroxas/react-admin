@@ -6,9 +6,24 @@ import Header from "../../components/Header";
 
 const initialValues = {
     firstName: "",
-    firstName: "",
-    firstName: "",
-}
+    lastName: "",
+    email: "",
+    contact: "",
+    address1: "",
+    address2: "",
+};
+
+const phoneRegExp = 
+/^\+90\d{10}$/;
+
+const userSchema = yup.object().shape({
+    firstName: yup.string().required("required"),
+    lastName: yup.string().required("required"),
+    email: yup.string().required("required"),
+    contact: yup.string().matches(phoneRegExp, "Phone number is not valid").required("required"),
+    address1: yup.string().required("required"),
+    address2: yup.string().email("invalid email").required("required"),
+})
 
 const Form = () => {
     const isNonMobile = useMediaQuery("(min-width:600px)");
@@ -24,9 +39,39 @@ const Form = () => {
             <Formik
                 onSubmit={handleFormSubmit}
                 initialValues={initialValues}
-                >
-
+                validationSchema={userSchema}
+            >
+                {({values, errors, touched, handleBlur, handleChange, handleSubmit}) => (
+                    <form onSubmit={handleSubmit}>
+                        <Box 
+                        display="grid" 
+                        gap="30px"
+                        gridTemplateColumns="repeat(4, minmax(0, 1fr))"
+                        sx = {{
+                            "& > div": {gridColumn: isNonMobile ? undefined : "span 4"}
+                        }}
+                        >
+                            <TextField
+                            fullWidth
+                            variant="filled"
+                            type="text"
+                            label="First Name"
+                            onBlur={handleBlur}
+                            onChange={handleChange}
+                            value={values.firstName}
+                            name="firstName"
+                            error={!!touched.firstName && !!errors.firstName}
+                            helperText={touched.firstName && errors.firstName}
+                            sx={{ gridColumn: "span 2" }}
+                            />
+                        </Box>
+                    </form>
+                )
+                }
             </Formik>
         </Box>
     )
+                
 }
+
+export default Form;
